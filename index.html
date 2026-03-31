@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CNC & Manufacturing AI Toolkit — 50+ Prompts for Machinists</title>
+<meta name="description" content="50+ copy-and-paste AI prompts built specifically for CNC operators, machinists, and workshop owners. Covers quoting, G-code, feeds & speeds, documentation, and more.">
+<meta name="keywords" content="CNC, AI prompts, machinist, manufacturing, ChatGPT, feeds and speeds, G-code, quoting, workshop">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #f8f9fa; line-height: 1.6; }
+  
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 80px 20px 60px; text-align: center; }
+  .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; max-width: 800px; margin: 0 auto 16px; }
+  .hero .subtitle { font-size: clamp(16px, 2.5vw, 20px); color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+  .hero .badge { display: inline-block; background: #f59e0b; color: #0f172a; padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 14px; margin-bottom: 24px; }
+  
+  .cta-box { background: white; border-radius: 16px; padding: 32px; max-width: 480px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .price { font-size: 48px; font-weight: 800; color: #0f172a; }
+  .price span { font-size: 20px; color: #64748b; font-weight: 400; }
+  .cta-btn { display: block; width: 100%; background: #f59e0b; color: #0f172a; border: none; padding: 16px; font-size: 18px; font-weight: 700; border-radius: 10px; cursor: pointer; margin-top: 16px; text-decoration: none; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+  .cta-sub { font-size: 13px; color: #94a3b8; margin-top: 12px; }
+  
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  
+  .features { padding: 80px 20px; background: white; }
+  .features h2 { text-align: center; font-size: 32px; margin-bottom: 48px; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .feature-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+  .feature-card .icon { font-size: 28px; margin-bottom: 12px; }
+  .feature-card h3 { font-size: 18px; margin-bottom: 8px; color: #0f172a; }
+  .feature-card p { font-size: 14px; color: #64748b; }
+  
+  .samples { padding: 80px 20px; }
+  .samples h2 { text-align: center; font-size: 32px; margin-bottom: 16px; }
+  .samples .sub { text-align: center; color: #64748b; margin-bottom: 40px; }
+  .sample-prompt { background: #1e293b; color: #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 14px; line-height: 1.7; white-space: pre-wrap; font-family: 'Courier New', monospace; overflow-x: auto; }
+  .sample-label { background: #f59e0b; color: #0f172a; display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+  
+  .bonus { padding: 60px 20px; background: #fffbeb; }
+  .bonus h2 { text-align: center; font-size: 28px; margin-bottom: 32px; }
+  .bonus-list { max-width: 600px; margin: 0 auto; }
+  .bonus-item { display: flex; align-items: start; gap: 12px; margin-bottom: 16px; font-size: 16px; }
+  .bonus-item .check { color: #16a34a; font-size: 20px; flex-shrink: 0; }
+  
+  .who { padding: 60px 20px; background: white; }
+  .who h2 { text-align: center; font-size: 28px; margin-bottom: 32px; }
+  .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; margin: 0 auto; }
+  .who-col h3 { font-size: 18px; margin-bottom: 12px; }
+  .who-col ul { list-style: none; padding: 0; }
+  .who-col ul li { padding: 4px 0; font-size: 15px; }
+  .who-col ul li::before { content: "✅ "; }
+  .who-col.not ul li::before { content: "❌ "; }
+  
+  .final-cta { padding: 80px 20px; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; text-align: center; }
+  .final-cta h2 { font-size: 32px; margin-bottom: 16px; }
+  .final-cta p { color: #94a3b8; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  
+  footer { padding: 32px 20px; text-align: center; color: #94a3b8; font-size: 13px; background: #0f172a; }
+  
+  @media (max-width: 640px) {
+    .who-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="badge">🔧 BUILT BY MACHINISTS, FOR MACHINISTS</div>
+  <h1>The CNC & Manufacturing AI Toolkit</h1>
+  <p class="subtitle">50+ copy-and-paste AI prompts that save you hours on quoting, programming, documentation, and shop management.</p>
+  
+  <div class="cta-box">
+    <div class="price">$12 <span>AUD</span></div>
+    <p style="color: #64748b; font-size: 14px; margin-top: 4px;">One-time purchase. Instant download.</p>
+    <a href="#buy" id="buy-btn" class="cta-btn">⚡ Get the Toolkit — $12 AUD</a>
+    <p class="cta-sub">PDF + CSV templates. Works with ChatGPT, Claude, Gemini.</p>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2>What's Inside</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>Quoting & Estimating</h3>
+        <p>10 prompts — job quotes, batch pricing, rush surcharges, follow-ups, cost post-mortems. Stop spending 45 minutes on quotes that should take 10.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔩</div>
+        <h3>G-Code & Programming</h3>
+        <p>8 prompts — troubleshoot code, generate programs, decode alarm codes, debug post-processors, build macros. Your AI co-pilot for programming.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚙️</div>
+        <h3>Feeds, Speeds & Tooling</h3>
+        <p>8 prompts — calculate parameters for YOUR setup, fix chatter, optimise surface finish, get new-material cheat sheets. Plus a printable reference chart.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📄</div>
+        <h3>Documentation & Compliance</h3>
+        <p>8 prompts — inspection reports, SOPs, JSAs, maintenance schedules, training records, NCRs. The paperwork nobody likes, done in minutes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💬</div>
+        <h3>Client Communication</h3>
+        <p>8 prompts — professional emails, review requests, social posts, job ads, case studies, newsletters. Sound professional without the effort.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏢</div>
+        <h3>Business Operations</h3>
+        <p>8 prompts — shop scheduling, supplier negotiation, cashflow forecasting, capacity planning, training plans. Run the business side smarter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="samples">
+  <div class="container">
+    <h2>Sample Prompts</h2>
+    <p class="sub">Here's a taste of what you're getting — just copy, paste, and customise the [brackets].</p>
+    
+    <div class="sample-label">QUOTING</div>
+    <div class="sample-prompt">I run a CNC machining shop. I need to quote a job:
+- Part: [describe the part]
+- Material: [material type and grade]
+- Quantity: [number]
+- Operations: [list operations]
+- Tolerances: [general or specific]
+
+Help me estimate machine time, material cost, setup time, 
+and a fair shop rate breakdown. Give me a range and flag 
+anything I might be underestimating.</div>
+    
+    <div class="sample-label">G-CODE TROUBLESHOOTING</div>
+    <div class="sample-prompt">I'm getting [describe problem] on my [machine + controller].
+
+Here's the relevant G-code:
+[paste code block]
+
+What's likely wrong? Give me:
+1. Most probable cause
+2. How to fix it  
+3. What to check on the machine</div>
+
+    <div class="sample-label">NEW MATERIAL CHEAT SHEET</div>
+    <div class="sample-prompt">I've never machined [material] before. Give me:
+1. Key properties that affect machining
+2. Recommended tool types and coatings
+3. Starting feeds and speeds
+4. Common mistakes to avoid
+5. Coolant recommendations
+6. Safety considerations</div>
+  </div>
+</section>
+
+<section class="bonus">
+  <div class="container">
+    <h2>🎁 Bonus Templates Included</h2>
+    <div class="bonus-list">
+      <div class="bonus-item"><span class="check">✅</span> Feed & Speed Quick Reference Cheat Sheet (PDF) — Aluminium, steel, stainless, tool steel, brass, plastics</div>
+      <div class="bonus-item"><span class="check">✅</span> Job Tracking Spreadsheet (CSV) — Open in Excel or Google Sheets</div>
+      <div class="bonus-item"><span class="check">✅</span> Tool Maintenance Log (CSV) — Track tool life, replacement history, conditions</div>
+      <div class="bonus-item"><span class="check">✅</span> 3 Power User Prompts — "Teach Me" mode, reverse engineering helper, shop layout optimiser</div>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="container">
+    <h2>Is This For You?</h2>
+    <div class="who-grid">
+      <div class="who-col">
+        <h3>This IS for you if:</h3>
+        <ul>
+          <li>CNC mill or lathe operator</li>
+          <li>Workshop owner / manager</li>
+          <li>Apprentice or junior machinist</li>
+          <li>Engineer managing shop operations</li>
+          <li>Curious about AI in the shop</li>
+        </ul>
+      </div>
+      <div class="who-col not">
+        <h3>This is NOT for you if:</h3>
+        <ul>
+          <li>Looking for generic "hustle" prompts</li>
+          <li>Not in machining / manufacturing</li>
+          <li>Want AI to replace machinists (it won't)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="buy">
+  <h2>Save Hours Every Week</h2>
+  <p>If it saves you 30 minutes on one quote, it's paid for itself.</p>
+  <div class="cta-box" style="box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+    <div class="price">$12 <span>AUD</span></div>
+    <a href="#" id="purchase-link" class="cta-btn">⚡ Get the Toolkit — $12 AUD</a>
+    <p class="cta-sub">Instant download. PDF + CSV templates. No subscription.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ForgeByte AI. Built from real shop floor experience.</p>
+  <p style="margin-top: 8px;">Works with ChatGPT, Claude, Gemini, Copilot, or any AI chatbot.</p>
+</footer>
+
+</body>
+</html>
